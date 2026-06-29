@@ -1,5 +1,5 @@
 'use client'
-// import { authClient } from '@/lib/auth-client';
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React, { use, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,36 +7,36 @@ import { FaGoogle } from 'react-icons/fa';
 import { toast } from "react-toastify";
 
 const Login = () => {
-//     const handlelogin = async()=>{
-//         const data = await authClient.signIn.social({
-//     provider: "google",
-//     })}
+    const handlelogin = async()=>{
+        const data = await authClient.signIn.social({
+    provider: "google",
+    })}
     const [showPass, setShowPass] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
 
-//     const handleLogin = async (data) => {
-//     const { data: res, error } = await authClient.signIn.email({
-//     email: data.email, // required
-//     password: data.password, // required
-//     rememberMe: true,
-//     callbackURL: "/",
-// });
-//     if (res) {
-//         toast.success("Login successful!");
-//     }   
-//     if (error) {
-//         error.message && toast.error(error.message);
-//         return;
-//     }
+    const handleLogin = async (data) => {
+    const { data: res, error } = await authClient.signIn.email({
+    email: data.email, // required
+    password: data.password, // required
+    rememberMe: true,
+    callbackURL: "/",
+});
+    if (res) {
+        toast.success("Login successful!");
+    }   
+    if (error) {
+        error.message && toast.error(error.message);
+        return;
+    }
 
-// }
+}
 
     return (
         <div className='container mx-auto min-h-[80vh] flex items-center justify-center flex-col gap-5 bg-slate-200 p-5 rounded-lg'>
             <div className='bg-white p-5 rounded-lg'>
                 <h2 className='font-bold text-3xl mb-6'>Login your account</h2>
-            <form className='space-y-3' onSubmit={handleSubmit()}>
+            <form className='space-y-3' onSubmit={handleSubmit(handleLogin)}>
                 <fieldset className="fieldset">
   <legend className="fieldset-legend ">E-mail</legend>
   <input type="email" className="input" placeholder="Type your E-mail"   {...register("email", { required: true })} />
