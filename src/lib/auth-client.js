@@ -16,7 +16,7 @@ export const authClient = createAuthClient({
                 }
             },
             session: {
-        additionalFields: {          // 👈 THIS is what you're missing
+        additionalFields: {          
             role:   { type: "string" },
             status: { type: "string" },
         }
