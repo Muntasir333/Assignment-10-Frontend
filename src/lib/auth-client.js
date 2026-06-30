@@ -1,5 +1,5 @@
 import { createAuthClient } from "better-auth/react";
-import { inferAdditionalFields } from "better-auth/client/plugins";
+import { inferAdditionalFields, jwtClient } from "better-auth/client/plugins";
 
 export const authClient = createAuthClient({
     baseURL: "http://localhost:3000",
@@ -16,13 +16,13 @@ export const authClient = createAuthClient({
                 }
             },
             session: {
-        additionalFields: {          
-            role:   { type: "string" },
-            status: { type: "string" },
-        }
-    },
-        })
-        
+                additionalFields: {
+                    role:   { type: "string" },
+                    status: { type: "string" },
+                }
+            },
+        }),
+        jwtClient(),
     ]
 });
 
