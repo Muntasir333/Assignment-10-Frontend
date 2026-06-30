@@ -1,5 +1,6 @@
 'use client';
 
+import { authClient } from '@/lib/auth-client';
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
@@ -17,6 +18,7 @@ export default function DonationRequestsCardsPage() {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
+        
         setIsLoading(true);
         const res = await fetch('http://localhost:5000/blood-requests');
         if (!res.ok) throw new Error("Failed to load blood stream registries.");
@@ -37,12 +39,15 @@ export default function DonationRequestsCardsPage() {
       toast.error("Please fill in your donor contact details.");
       return;
     }
+    const tokenResponse = await authClient.token();
+  const token = tokenResponse?.data?.token;
+
 
     try {
       // Send the interest response back to the server
       const res = await fetch(`http://localhost:5000/blood-requests/${selectedRequest._id}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({
           status: 'pending_donor', // Updates the status so admins/volunteers see someone stepped up
           donorDetails: { name: donorName, phone: donorPhone, appliedAt: new Date() }

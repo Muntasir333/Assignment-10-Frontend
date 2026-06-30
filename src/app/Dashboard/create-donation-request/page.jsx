@@ -60,10 +60,16 @@ export default function CreateDonationRequest() {
         donationStatus: "pending" // Added under-the-hood automatically as instructed
       };
 
-      // Send payload data directly to your local API backend matching Next route setups
+    const tokenResponse = await authClient.token();
+  const token = tokenResponse?.data?.token;
+  console.log("Auth Token:", token); // Debugging: Ensure token is retrieved
+
       const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add-request`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify(payload),
       });
 
