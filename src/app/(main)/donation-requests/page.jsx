@@ -18,7 +18,7 @@ export default function DonationRequestsCardsPage() {
     const fetchRequests = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch('http://localhost:5000/my-requests');
+        const res = await fetch('http://localhost:5000/blood-requests');
         if (!res.ok) throw new Error("Failed to load blood stream registries.");
         const data = await res.json();
         setRequests(Array.isArray(data) ? data : []);
@@ -40,7 +40,7 @@ export default function DonationRequestsCardsPage() {
 
     try {
       // Send the interest response back to the server
-      const res = await fetch(`http://localhost:5000/my-requests/${selectedRequest._id}`, {
+      const res = await fetch(`http://localhost:5000/blood-requests/${selectedRequest._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ export default function DonationRequestsCardsPage() {
       setDonorPhone('');
 
       // Refresh data grid
-      const refresh = await fetch('http://localhost:5000/my-requests');
+      const refresh = await fetch('http://localhost:5000/blood-requests');
       const freshData = await refresh.json();
       setRequests(freshData);
     } catch (err) {
