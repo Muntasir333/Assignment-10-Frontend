@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🩸 Bloody - Blood Donation & Funding Management System
 
-## Getting Started
+A full-stack web application that helps connect blood donors with people who need blood. It provides separate dashboards for donors, volunteers, and admins, making blood donation management simple, secure, and efficient.
 
-First, run the development server:
+🚀 Live Demo
+Website: https://bloody-donation-network.vercel.app (Replace with your actual deployed URL if different.)
+Backend API: http://localhost:5000 (Development)
+🎯 Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Finding a blood donor during an emergency can be difficult and time-sensitive.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Bloody helps patients quickly find suitable blood donors. It also allows volunteers and administrators to manage blood requests while keeping the system secure through role-based access.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+✨ Features
+👤 Role-Based Dashboard
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application provides different dashboards based on the user's role.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🛡️ Admin Dashboard
+View overall website statistics
+Manage all users
+Block or unblock users
+Change user roles
+Delete blood requests
+Track total donations and blood requests
+🤝 Volunteer Dashboard
+View all blood requests
+Update request status (Completed or Cancelled)
+Filter requests
+Cannot delete requests or manage users
+❤️ Donor Dashboard
+View personal blood donation requests
+Track request status
+Manage their own donation activities
+🩸 Blood Request System
+View active blood requests
+Blood group badges and request status
+See hospital and patient information
+Open request details in a modal
+Donate by submitting contact information
+🔒 Secure Authentication & Authorization
+Protected routes for logged-in users
+Role-based dashboard access
+Backend authorization checks
+Unauthorized users receive 403 Forbidden responses
+🛠️ Technologies Used
+Frontend
+Next.js – React framework
+React – User Interface
+Better Auth / Custom Authentication
+React Toastify – Notifications
+Gravity UI Icons – Icons
+Backend
+Node.js
+Express.js
+MongoDB
+CORS
+dotenv
+📦 Main Packages
+Frontend
+React
+Next.js
+Better Auth
+React Toastify
+Gravity UI Icons
+Backend
+Express
+MongoDB
+CORS
+dotenv
+🔐 Security Features
+Role-based authorization
+Protected API routes
+Protected dashboard pages
+Admin-only management features
+Secure MongoDB database operations
