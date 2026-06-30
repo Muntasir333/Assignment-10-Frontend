@@ -10,6 +10,7 @@ import {
   ArrowChevronRight
 } from '@gravity-ui/icons';
 import { Button, Drawer } from '@heroui/react';
+import { BiHome } from 'react-icons/bi';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -89,6 +90,14 @@ export default function Sidebar() {
       >
         <ArrowChevronRight className="size-5 text-red-400" />
         <span>Logout</span>
+      </button>
+      <button
+        onClick={() => { closeDrawer(); window.location.href = "/"; }}
+        className="w-full flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-400 hover:bg-red-950/30 transition-all text-left mt-8 border-t border-slate-800 pt-4"
+        type="button"
+      >
+        <BiHome className="size-5 text-red-400" />
+        <span>Home</span>
       </button>
     </nav>
   );

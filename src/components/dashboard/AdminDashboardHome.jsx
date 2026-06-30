@@ -24,7 +24,7 @@ export default function DashboardHome() {
         const [usersRes, fundsRes, requestsRes] = await Promise.all([
           fetch('http://localhost:5000/users'),
           fetch('http://localhost:5000/api-funds'),
-          fetch('http://localhost:5000/my-requests')
+          fetch('http://localhost:5000/blood-requests')
         ]);
 
         const users = usersRes.ok ? await usersRes.json() : [];

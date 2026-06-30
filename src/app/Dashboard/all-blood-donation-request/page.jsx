@@ -29,7 +29,7 @@ export default function AllBloodDonationRequestsPage() {
       try {
         setIsLoading(true);
         // 🌟 Ensure this endpoint returns ALL requests from the database
-        const res = await fetch('http://localhost:5000/my-requests');
+        const res = await fetch('http://localhost:5000/blood-requests');
         if (!res.ok) throw new Error("Could not pull reservation registries.");
         const data = await res.json();
         
@@ -48,7 +48,7 @@ export default function AllBloodDonationRequestsPage() {
 
   const handleUpdateStatus = async (requestId, nextStatus) => {
     try {
-      const res = await fetch(`http://localhost:5000/my-requests/${requestId}`, {
+      const res = await fetch(`http://localhost:5000/blood-requests/${requestId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: nextStatus, requestedByRole: role }), 
@@ -69,7 +69,7 @@ export default function AllBloodDonationRequestsPage() {
   const handleAdminDelete = async (requestId) => {
     if (!confirm("Permanently delete this record?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/my-requests/${requestId}?role=${role}`, {
+      const res = await fetch(`http://localhost:5000/blood-requests/${requestId}?role=${role}`, {
         method: 'DELETE',
       });
       if (!res.ok) throw new Error("Deletion rejected by server.");
