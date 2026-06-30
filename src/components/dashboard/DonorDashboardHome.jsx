@@ -8,7 +8,6 @@ export default function DonorDashboardHome({ user }) {
   useEffect(() => {
     if (!user?.email) return;
 
-    // 🔒 Calls the updated endpoint which now correctly runs a { requesterEmail: email } database match
     fetch(`http://localhost:5000/my-requests?email=${user.email}`)
       .then(res => {
         if (!res.ok) throw new Error("Could not fetch filtered metrics.");

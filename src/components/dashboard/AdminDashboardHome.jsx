@@ -35,7 +35,7 @@ export default function DashboardHome() {
         const fundingSum = funds.reduce((acc, curr) => acc + (parseFloat(curr.amount) || 0), 0);
 
         setStats({
-          totalDonors: donorsCount || users.length, // Fallback to all users if roles aren't preset
+          totalDonors: donorsCount || users.length, 
           totalFunding: fundingSum,
           totalRequests: requests.length,
         });
